@@ -20,8 +20,18 @@ module RedisProtocol
   end
 
   class RedisNullInstance
+    TO_S = "RedisProtocol::RedisNull"
+
     def value
       nil
+    end
+
+    def to_s(io : IO)
+      io << TO_S
+    end
+
+    def inspect(io : IO)
+      io << TO_S
     end
   end
   RedisNull = RedisNullInstance.new # as Singleton
