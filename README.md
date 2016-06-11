@@ -1,4 +1,4 @@
-# redis-protocol.cr
+# redis-protocol.cr [![Build Status](https://travis-ci.org/maiha/redis-protocol.cr.svg?branch=master)](https://travis-ci.org/maiha/redis-protocol.cr)
 
 crystal support for "redis-protocol.rb"
 
