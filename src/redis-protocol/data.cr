@@ -9,6 +9,10 @@ module RedisProtocol
     def value
       raw
     end
+
+    def to_s(io : IO)
+      io << "#{value}"
+    end
   end
 
   record RedisString,
@@ -17,21 +21,23 @@ module RedisProtocol
     def value
       raw
     end
+
+    def to_s(io : IO)
+      io << value.inspect
+    end
   end
 
   class RedisNullInstance
-    TO_S = "RedisProtocol::RedisNull"
-
     def value
       nil
     end
 
     def to_s(io : IO)
-      io << TO_S
+      io << "(nil)"
     end
 
     def inspect(io : IO)
-      io << TO_S
+      io << "RedisProtocol::RedisNull"
     end
   end
   RedisNull = RedisNullInstance.new # as Singleton
@@ -42,6 +48,10 @@ module RedisProtocol
     def value
       raw
     end
+
+    def to_s(io : IO)
+      io << "Error(#{value})"
+    end
   end
 
   alias Type = RedisInteger | RedisString | RedisError | RedisNull
@@ -51,6 +61,15 @@ module RedisProtocol
 
     def value
       raw.map(&.value)
+    end
+
+    def to_s(io : IO)
+      io << "["
+      raw.each_with_index do |v,i|
+        io << v.to_s
+        io << ", " if i < raw.size - 1
+      end
+      io << "]"
     end
   end
 end
