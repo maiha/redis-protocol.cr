@@ -54,7 +54,7 @@ module RedisProtocol
     end
   end
 
-  alias Type = RedisInteger | RedisString | RedisError | RedisNull
+  alias Type = RedisInteger | RedisString | RedisError | RedisNullInstance
   
   record RedisArray,
     raw : Array(Type) do
