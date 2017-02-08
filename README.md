@@ -20,6 +20,7 @@ Add this to your application's `shard.yml`:
 dependencies:
   redis-protocol:
     github: maiha/redis-protocol.cr
+    version: 0.1.1
 ```
 
 ## Usage

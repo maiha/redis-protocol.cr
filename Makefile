@@ -1,7 +1,8 @@
-.PHONY : test
-test: spec
+SHELL = /bin/bash
 
-.PHONY : spec
+.PHONY : all spec
+
+all: spec
+
 spec:
 	crystal spec -v --fail-fast
-
