@@ -4,7 +4,7 @@ crystal support for "redis-protocol.rb"
 
 - [Redis Protocol specification](http://redis.io/topics/protocol)
 - [redis-protocol.rb](https://rubygems.org/gems/redis-protocol)
-- crystal: 0.20.0
+- crystal: 0.26.1
 
 ## TODO
 

@@ -1,8 +1,8 @@
 SHELL = /bin/bash
 
-.PHONY : all spec
+.PHONY : test
+test: spec
 
-all: spec
-
+.PHONY : spec
 spec:
 	crystal spec -v --fail-fast
